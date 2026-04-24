@@ -11,6 +11,7 @@ public class TestTransporte {
 	private Destino destino2;
 	private Destino destino3;
 	private Destino destino4;
+	private Destino destinoRepetido;
 	private Paquete paqueteChico;
 	private Paquete paqueteMediano;
 	private Paquete paqueteGrande;
@@ -23,6 +24,7 @@ public class TestTransporte {
 		this.destino2 = new Destino ("Moron");
 		this.destino3 = new Destino ("Ramos Mejia");
 		this.destino4 = new Destino ("Liniers");
+		this.destinoRepetido = new Destino ("San Justo");
 		this.paqueteChico = new Paquete (0.5, 0.5, 0.5, 15.0);
 		this.paqueteMediano = new Paquete (1.5, 0.5, 2.0, 500.0);
 		this.paqueteGrande = new Paquete (2.5, 2.5, 3.0, 16000.0);
@@ -34,7 +36,7 @@ public class TestTransporte {
 	public void dadoQueTengoUnaEmpresaDeTransporteQueEstanEviandoUnPaqueteEnUnaBicicletaDeboVerificarQueLoPuedaLLevar() 
 			throws NoCumpleLasCondicionesDeCargaException {
 		
-		Bicicleta bicicleta = new Bicicleta( this.paqueteChico );
+		Transporte bicicleta = new Bicicleta( this.paqueteChico );
 		bicicleta.agregarDestino(destino1);
 	//	bicicleta.agregarDestino(destino2);
 		assertTrue( bicicleta.sePuedeLLevar(destino1));
@@ -55,7 +57,7 @@ public class TestTransporte {
 	public void dadoQueTengoUnaEmpresaDeTransporteQueEstanEviandoUnPaqueteEnUnAutomovilDeboVerificarQueLoPuedaLLevar() 
 			throws NoCumpleLasCondicionesDeCargaException {
 		
-		Transporte automovil= new Automovil( this.paqueteMediano );
+		Transporte automovil = new Automovil( this.paqueteMediano );
 		automovil.agregarDestino(destino1);
 		automovil.agregarDestino(destino2);
 		automovil.agregarDestino(destino3);
@@ -73,14 +75,13 @@ public class TestTransporte {
 	public void dadoQueTengoUnaEmpresaDeTransporteQueEstanEviandoUnPaqueteConUnAutomivilDeboPermitirQueSoloLLevePesoExcedido() 
 			throws NoCumpleLasCondicionesDeCargaException {
 		
-		Transporte automovil= new Automovil( this.paqueteMediano );
+		Transporte automovil = new Automovil( this.paqueteMediano );
 		automovil.agregarDestino(destino1);
 		automovil.agregarDestino(destino2);
 		automovil.agregarDestino(destino3);
 		automovil.agregarDestino(destino4);
+		automovil.agregarDestino(destinoRepetido);
 		
-		Destino destinoRepetido = new Destino ("San Justo");
-				automovil.agregarDestino(destinoRepetido);
 		assertTrue( automovil.sePuedeLLevar(destino1));
 		assertTrue( automovil.sePuedeLLevar(destino2));
 		assertTrue( automovil.sePuedeLLevar(destino3));
@@ -92,7 +93,7 @@ public class TestTransporte {
 	public void dadoQueTengoUnaEmpresaDeTransporteQueEstanEviandoUnPaqueteEnUnCamionDeboVerificarQueLoPuedaLLevar() 
 			throws NoCumpleLasCondicionesDeCargaException {
 		
-		Transporte camion= new Camion( this.paqueteGrande);
+		Transporte camion = new Camion( this.paqueteGrande);
 		
 		camion.agregarDestino(destino1);
 		camion.agregarDestino(destino2);
@@ -109,14 +110,9 @@ public class TestTransporte {
 	public void dadoQueTengoUnaEmpresaDeTransporteQueEstanEviandoUnPaqueteConUnCamionDeboPermitirQueSoloLLevePesoExcedido() 
 			throws NoCumpleLasCondicionesDeCargaException {
 		
-		Transporte camion= new Camion( this.paqueteExcedido);
+		Transporte camion = new Camion( this.paqueteExcedido);
 		camion.agregarDestino(destino1);
-		
-		
+			
 		assertTrue( camion.sePuedeLLevar(destino1));
-	
-
-		
 	}
-
 }
