@@ -39,8 +39,7 @@ public class TestTransporte {
 		Transporte bicicleta = new Bicicleta( this.paqueteChico );
 		bicicleta.agregarDestino(destino1);
 	//	bicicleta.agregarDestino(destino2);
-		assertTrue( bicicleta.sePuedeLLevar(destino1));
-		
+		assertTrue( bicicleta.sePuedeLLevar(destino1));	
 	}
 	
 	@Test (expected = NoCumpleLasCondicionesDeCargaException.class)
@@ -50,7 +49,6 @@ public class TestTransporte {
 		Transporte bicicleta = new Bicicleta( this.paqueteMediano );
 		bicicleta.agregarDestino(destino1);
 		assertTrue( bicicleta.sePuedeLLevar(destino1));
-		
 	}
 	
 	@Test
@@ -61,10 +59,9 @@ public class TestTransporte {
 		automovil.agregarDestino(destino1);
 		automovil.agregarDestino(destino2);
 		automovil.agregarDestino(destino3);
-		//automovil.agregarDestino(destino4);
+    //	automovil.agregarDestino(destino4);
+	//	automovil.agregarDestino(destinoRepetido);
 		
-//		Destino destinoRepetido = new Destino ("San Justo");
-//				automovil.agregarDestino(destinoRepetido);
 		assertTrue( automovil.sePuedeLLevar(destino1));
 		assertTrue( automovil.sePuedeLLevar(destino2));
 		assertTrue( automovil.sePuedeLLevar(destino3));
@@ -86,15 +83,14 @@ public class TestTransporte {
 		assertTrue( automovil.sePuedeLLevar(destino2));
 		assertTrue( automovil.sePuedeLLevar(destino3));
 		assertTrue( automovil.sePuedeLLevar(destino4));
-		
+		assertTrue( automovil.sePuedeLLevar(destinoRepetido));
 	}
 	
 	@Test
 	public void dadoQueTengoUnaEmpresaDeTransporteQueEstanEviandoUnPaqueteEnUnCamionDeboVerificarQueLoPuedaLLevar() 
 			throws NoCumpleLasCondicionesDeCargaException {
 		
-		Transporte camion = new Camion( this.paqueteGrande);
-		
+		Transporte camion = new Camion( this.paqueteGrande);	
 		camion.agregarDestino(destino1);
 		camion.agregarDestino(destino2);
 		camion.agregarDestino(destino3);
