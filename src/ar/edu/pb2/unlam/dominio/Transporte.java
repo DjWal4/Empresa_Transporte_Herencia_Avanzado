@@ -13,7 +13,6 @@ public abstract class Transporte {
 	public Transporte( Paquete paquete) {
 		this.id = ++proximoId;
 		this.paquete = paquete;
-		
 	}
 	
 	public Boolean agregarDestino(Destino destino){
@@ -36,6 +35,17 @@ public abstract class Transporte {
 		return volumenMax;
 	}
 	
-	public abstract Boolean sePuedeLLevar(Destino destino) throws NoCumpleLasCondicionesDeCargaException ;
+	public abstract Boolean sePuedeLLevar(Destino destino) 
+			throws NoCumpleLasCondicionesDeCargaException ;
+
+	public  ArrayList<Destino> obtenerDestinosOrdenadosDesc(){
+		ArrayList<Destino> destinoOrdDesc = new ArrayList<Destino>();
+		for(Destino destino : listaDeDestinos) {
+			destinoOrdDesc.add(destino);
+		}
+		destinoOrdDesc.sort(new CompararNombreDesc());
+		
+		return destinoOrdDesc;
 	
+	}
 }

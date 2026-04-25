@@ -20,6 +20,4 @@ public class Bicicleta extends Transporte {
 			throw new NoCumpleLasCondicionesDeCargaException(" Has superado el volumen o la carga permitida en Bicicleta");
 		}
 	}
-
-	
 }

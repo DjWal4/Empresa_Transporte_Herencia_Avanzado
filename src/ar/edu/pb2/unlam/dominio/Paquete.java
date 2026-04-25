@@ -1,6 +1,7 @@
 package ar.edu.pb2.unlam.dominio;
 
 public class Paquete {
+	
 	private Integer id,proximoId = 0;
 	private Double alto;
     private Double ancho;
@@ -26,7 +27,6 @@ public class Paquete {
     public Double getPeso() {
         return peso;
     }
-
 }
 
 

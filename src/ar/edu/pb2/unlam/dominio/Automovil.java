@@ -1,5 +1,7 @@
 package ar.edu.pb2.unlam.dominio;
 
+
+
 public class Automovil extends Transporte {
 
 	private static Double limiteCarga = 500.0;
@@ -16,11 +18,7 @@ public class Automovil extends Transporte {
 			 && listaDeDestinos.size() <= 3 && listaDeDestinos.contains(destino)) {
 			 return true;
 			}else {
-				throw new NoCumpleLasCondicionesDeCargaException(" Has superado el volumen o la carga permitida en Automovil");
+				throw new NoCumpleLasCondicionesDeCargaException(" Has superado el volumen o la carga permitida en Automovil ");
 			}
-		}
-
-	
-
-
+		}	
 }
